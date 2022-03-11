@@ -2,9 +2,6 @@
 File to import any code to show in Home page
 */
 
-// Sass files to Boostrap
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
-
 // Sass files to FontAwesome
 @import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
@@ -15,3 +12,7 @@ File to import any code to show in Home page
 // Import your code here
 @import './vars/colors';
 @import './components/topbar';
+@import './components/searchform';
+@import './components/postcard';
+@import './components/sidebar';
+@import './components/comments';
