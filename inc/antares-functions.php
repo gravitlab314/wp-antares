@@ -153,7 +153,7 @@ function wp_antares_thumbnail(){
 
     else:
 
-        print( '<img src="'. get_bloginfo( 'template_url' ). '/assets/banners/default-image.png" class="thumb-img">' );
+        print( '<img src="'. get_bloginfo( 'template_url' ). '/assets/banners/default-image.png" class="thumb-img" width="300px" height="300px">' );
 
     endif;
 }

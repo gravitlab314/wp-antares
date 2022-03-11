@@ -41,6 +41,10 @@ function wp_antares_scripts(){
      * @since 1.0.0
      */
 
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri(). '/assets/css/bootstrap.min.css', array(), '5.1.3', 'all' );
+    
+    wp_enqueue_style( 'index-css', get_template_directory_uri(). '/assets/css/index.min.css', array(), '1.0.0', 'all' );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'wp_antares_scripts' );
@@ -114,18 +118,6 @@ add_action( 'wp_head', 'wp_antares_remove_style_in_recent_comment_widget', 1 );
 
 /**
  * 
- * Disable the Tinymce emojis plugin
- *  
- */
-
-function disable_emojis_tinymce( $plugins ) {
-	return is_array( $plugins ) ? array_diff( $plugins, array( 'wpemoji' ) ) : array();
-}
-
-add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
-
-/**
- * 
  * Remove the CSS to galery
  * 
  */
@@ -156,3 +148,35 @@ function wp_antares_menus(){
 }
 
 add_action( 'after_setup_theme', 'wp_antares_menus' );
+
+/**
+ * 
+ * Add any class to li item menu
+ * 
+ */
+
+function wp_antares_li_class( $classes, $item, $args ){
+
+    $classes[] = 'nav-item';
+
+    return $classes;
+
+}
+
+add_filter( 'nav_menu_css_class', 'wp_antares_li_class', 1, 3 );
+
+/**
+ * 
+ * Add any class to a tag in menus
+ * 
+ */
+
+function wp_antares_anchor_class( $atts, $item, $args ){
+
+    $atts[ 'class' ] = 'nav-link';
+
+    return $atts;
+
+}
+
+add_filter( 'nav_menu_link_attributes', 'wp_antares_anchor_class', 10, 3 );
